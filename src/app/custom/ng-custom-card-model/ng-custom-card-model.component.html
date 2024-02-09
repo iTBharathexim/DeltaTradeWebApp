@@ -1,0 +1,27 @@
+<div class="modal dropdown-controller upload-modal" [id]="id" tabindex="-1" appOpenPopUp style="background-color: #0000004d;" role="dialog"
+  #PopUpOpenClose>
+  <div class="col-12 mt-2 hover-popup" [id]="id" role="document" [style.width]="width"
+    [style.height]="height" [style]="customstyle" style="height: 63vh;margin: auto !important;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{name}}</h5>
+        <div class="row" style="margin-right: 0 !important;
+          align-items: center;
+          gap: 10px;
+          justify-content: center;">
+          <button type="button" style="margin: auto;
+            display: flex;
+            padding: 0;
+            align-items: center;
+            justify-content: unset;" class="close-btn" data-dismiss="modal" aria-label="Close">
+            <img style="width: 30px;filter: brightness(23.5);" class="close-popup" [attr.popup-close]="id" (click)="ClosePopup()"
+              src="../../assets/close-circle-svgrepo-com.svg" alt="">
+          </button>
+        </div>
+      </div>
+      <div class="modal-body p-0 height-controller"  [style.height]="modalbodyheight" [style]="modalbodystyle">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

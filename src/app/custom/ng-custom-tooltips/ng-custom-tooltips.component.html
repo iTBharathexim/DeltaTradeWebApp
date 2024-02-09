@@ -1,0 +1,25 @@
+<div class="modal ng-custom-tooltips tooltips-modal" [id]="id" tabindex="-1" CommonDirective style="background-color:transparent;" role="dialog"
+  #PopUpOpenClose>
+  <div class="mt-2 hover-popup" [id]="id" role="document" [style.width]="width"
+    [style.height]="height" [style]="customstyle" style="height: 63vh;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{name}}</h5>
+        <div class="row" style="margin-right: 0 !important;align-items: center;gap: 10px;justify-content: center;width: 100%;">
+         <ng-content select="custom-header-tooltips"></ng-content>
+          <button type="button" style="margin: auto;display: flex;padding: 0;align-items: center;justify-content: unset;margin-right: 0;" 
+          class="close" data-dismiss="modal" aria-label="Close">
+            <img style="width: 15px;" class="CLOSE_CUSTOM_TOOLTIPS" [attr.ng-tooltips-popup]="id" (click)="ClosePopup()"
+              src="../../assets/close-circle-svgrepo-com.svg" alt="">
+          </button>
+        </div>
+      </div>
+      <div class="modal-body p-0 height-controller"  [style.height]="modalbodyheight" [style]="modalbodystyle">
+        <ng-content select="custom-content-tooltips"></ng-content>
+      </div>
+      <div class="modal-footer p-0" *ngIf="this.FooterButton!=false">
+        <button type="button" class="footer-btn"><span class="CLOSE_CUSTOM_TOOLTIPS" [attr.ng-tooltips-popup]="id" (click)="ClosePopup()">{{this.FooterButtonText}}</span></button>
+      </div>
+    </div>
+  </div>
+</div>

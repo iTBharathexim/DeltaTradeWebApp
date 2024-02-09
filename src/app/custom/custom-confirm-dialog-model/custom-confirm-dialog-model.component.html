@@ -1,0 +1,164 @@
+<div class="modal custommodel" tabindex="-1" [style]="this.MODEL_TYPE_VIEW['ConfirmDialog']==true?'display: flex;' : 'display: none;'" role="dialog" #custommodel>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{this.CustomConfirmDialogModel.titleheader}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="custommodel.style.display='none'">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{this.CustomConfirmDialogModel.message}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="custommodel.style.display='none'">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal Custom_Model" tabindex="-1" role="dialog" #Custom_Model [style]="this.MODEL_TYPE_VIEW['Custom_Model']==true?'display: flex;' : 'display: none;'" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" [innerHTML]="this.CustomConfirmDialogModel.titleheader"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="Custom_Model.style.display='none'">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p [innerHTML]="this.CustomConfirmDialogModel.message"></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal Notification_DialogModel" tabindex="-1" role="dialog" #Notification_DialogModel [style]="this.MODEL_TYPE_VIEW['Notification_DialogModel']==true?'display: flex;' : 'display: none;'" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" [innerHTML]="this.CustomConfirmDialogModel.titleheader"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="Notification_DialogModel.style.display='none'">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p style="text-align: center;" [innerHTML]="this.CustomConfirmDialogModel.message"></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal DropDownInputConfirmDialog" tabindex="-1" role="dialog" #DropDownInputConfirmDialog [style]="this.MODEL_TYPE_VIEW['DropDownInputConfirmDialog']==true?'display: block;z-index:99999999;' : 'display: none;'" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{this.CustomConfirmDialogModel.titleheader}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="DropDownInputConfirmDialog.style.display='none'">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <!-- <label for="exampleInputEmail1">{{this.CustomConfirmDialogModel.message}}</label>
+          <input type="text" class="form-control input-remove" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter {{this.message}}" #input> -->
+           <app-custom-dropdown
+           name="depot_Name"
+           placeholdertext="Please select...."
+           key="depot_Name"
+           [labeltext]="this.CustomConfirmDialogModel.message"
+           limit="15"
+           [data]="[{value:'Wrong Entry'},{value:'Missing Entry'},{value:'Duplicate Entry'},{value:'others'}]"
+            #input autocomplete_on_off="off"
+           ></app-custom-dropdown>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="this.CALLBACKS_CALL({Inputdata:input.value},DropDownInputConfirmDialog.style.display='none')">Save</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="DropDownInputConfirmDialog.style.display='none'">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal InputConfirmDialog" tabindex="-1" role="dialog" #InputConfirmDialog [style]="this.MODEL_TYPE_VIEW['InputConfirmDialog']==true?'display: block;' : 'display: none;'" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{this.CustomConfirmDialogModel.titleheader}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="InputConfirmDialog.style.display='none'">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="exampleInputEmail1">{{this.CustomConfirmDialogModel.message}}</label>
+          <input type="text" class="form-control input-remove" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter {{this.message}}" #normal_input>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="this.CALLBACKS_CALL({Inputdata:normal_input.value},InputConfirmDialog.style.display='none')">Save</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="InputConfirmDialog.style.display='none'">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="iframecustommodel" tabindex="-1" role="dialog" #iframecustommodel [style]="this.MODEL_TYPE_VIEW['IframeModel']==true?'display: block;' : 'display: none;'" >
+  <app-custom-model height="98vh" *ngIf="this.CustomConfirmDialogModel?.url?.length!=0"
+  id="Documents_View" name="Document View" (ModelChange)="this.HIDE_ALL_MODELS('IframeModel');">
+  <div class="form-group iframe-group">
+    <app-pdf-viewer [downloadShow]="false" *ngFor="let url of this.CustomConfirmDialogModel.url"
+     name="Documents" [src]="url" width="100%" height="100%"></app-pdf-viewer>
+  </div>
+  </app-custom-model>
+</div>
+
+<!-- <div class="modal iframecustommodel" tabindex="-1" role="dialog" #iframecustommodel [style]="this.MODEL_TYPE_VIEW['IframeModel']==true?'display: block;' : 'display: none;'" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{this.CustomConfirmDialogModel.titleheader}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="iframecustommodel.style.display='none'">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group iframe-group">
+          <app-pdf-viewer [downloadShow]="false" *ngFor="let url of this.CustomConfirmDialogModel.url"
+           name="Documents" [src]="url" width="700px" height="500px"></app-pdf-viewer>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="iframecustommodel.style.display='none'">Close</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="modal YesNoDialogModel" tabindex="-1" role="dialog" #YesNoDialogModel [style]="this.MODEL_TYPE_VIEW['YesNoDialogModel']==true?'display: block;' : 'display: none;'" >
+  <div class="form-group YesNoDialogModel-group">
+    <button type="button" class="close YesNoDialogModel-btn" data-dismiss="modal" aria-label="Close" (click)="YesNoDialogModel.style.display='none'">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="column">
+      <h5 class="modal-title">{{this.CustomConfirmDialogModel.titleheader}}</h5>
+      <div class="row" style="gap: 10px;">
+        <button type="button" class="btn btn-primary" (click)="this.CALLBACKS_CALL({Inputdata:'Yes'},YesNoDialogModel.style.display='none')">Yes</button>
+        <button type="button" class="btn btn-secondary" (click)="this.CALLBACKS_CALL({Inputdata:'No'},YesNoDialogModel.style.display='none')">No</button>
+      </div>
+    </div>
+   </div>
+</div>
+
+<div class="modal DropDownInput" tabindex="-1" role="dialog" #DropDownInput [style]="this.MODEL_TYPE_VIEW['DropDownInput']==true?'display: block;z-index:99999999;' : 'display: none;'" >
+  <div class="modal-dialog" role="document">
+        <div class="form-group">
+           <app-custom-dropdown
+           name="depot_Name"
+           placeholdertext="Please select...."
+           key="depot_Name"
+           [labeltext]="this.CustomConfirmDialogModel.message"
+           limit="15"
+           [data]="this.CustomConfirmDialogModel.message"
+            #input autocomplete_on_off="off"
+           ></app-custom-dropdown>
+        </div>
+      </div>
+</div>

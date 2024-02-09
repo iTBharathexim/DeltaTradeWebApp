@@ -1,0 +1,113 @@
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  border-radius: 3px;
+  background: white;
+  box-shadow: 0 2px 2px #00000024, 0 3px 1px -2px #0000001f, 0 1px 5px #0003;
+  text-align: left;
+  line-height: 35px;
+  color: #444;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 100%;
+}
+
+.custom-dropdown::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  margin-top: -2px;
+  width: 0;
+  height: 0;
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: #a0a0a0 transparent;
+}
+
+.custom-dropdown.custom-dropdown-active::before {
+  border-width: 0 6px 6px 6px;
+}
+
+.custom-dropdown .dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-radius: inherit;
+  box-shadow: inherit;
+  background: inherit;
+  transition: .3s ease;
+  transform: scaleY(0);
+  transform-origin: top;
+  -webkit-user-select: none;
+  user-select: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.custom-dropdown .dropdown li {
+  padding: 0 15px;
+  border-bottom: 1px solid rgba(110, 109, 109, .44);
+  overflow: hidden;
+  transition: .3s ease;
+}
+
+.custom-dropdown .dropdown li:last-child {
+  border-bottom: none;
+}
+
+.custom-dropdown .dropdown li:hover {
+  background: #ebf5ff;
+}
+
+.custom-dropdown.custom-dropdown-active .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: scaleY(1);
+  z-index: 999999;
+  height: auto;
+  min-height: auto !important;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.custom-dropdown.custom-dropdown-active .dropdown::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-dropdown input {
+  border: none !important;
+  outline: none;
+  background: transparent;
+  font-size: 11px;
+  color: black;
+}
+
+.clear-input {
+  position: absolute;
+  right: 33px;
+  color: #a0a0a0;
+  z-index: 99;
+  top: 10%;
+  font-size: 18px;
+}
+
+.clear-input:hover {
+  color: #D0021B;
+}
+
+.custom-dropdown input::placeholder {
+  font: 11px sans-serif;
+}
+
+.disabled-dropdown {
+  pointer-events: none;
+  opacity: 0.8;
+}

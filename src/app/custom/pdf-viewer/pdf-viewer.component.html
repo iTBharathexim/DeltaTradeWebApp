@@ -1,0 +1,41 @@
+<div class="pdf-viewer-wrap" [style.width]="width" [style.height]="Newheight">
+  <div class="pdf-viewer-controls-wrap">
+    <h2>{{name}}</h2>
+    <div class="pdf-viewer-controls">
+      <div class="pdfv-control">
+        <button (click)="zoomOut(this.SRC_UPDATE)">-</button>  <button (click)="zoomIn(this.SRC_UPDATE)">+</button>
+      </div>
+      <div class="pdfv-control">
+        <select name="zoomScales" [(ngModel)]="zoomScale" (change)="fitScreen($event.target)">
+          <option [value]="o" [selected]="i==0?true : ''" *ngFor="let o of zoomScales;let i=index">{{o}}</option>
+        </select>
+      </div>
+      <div class="pdfv-control" *ngIf="this.downloadShow==true">
+        <button (click)="downloadPdf(src)" title="download"><i class="fa fa-download" aria-hidden="true"></i></button>
+      </div>
+      <div class="pdfv-control" *ngIf="this.downloadShow==true">
+        <button (click)="printPdf(src)" title="print"><i class="fa fa-print" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="pdf-viewer-viewer-window pb-2" *ngIf="this.src!=''">
+    <div class="container-fluid p-0" [style.width]="width" [style.height]="100+'%'"
+      style="background-color: #0000005c;display: flex;align-items: center;justify-content: center;" [style.display]=" this.Sppinloader==true?'flex':'none' ">
+      <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="container-fluid p-0" [style.width]="width" [style.height]="100+'%'" [style.display]="this.Sppinloader==false?'flex':'none' ">
+      <iframe id="iframeId" frameborder="0" allowtransparency="true" style="background: #FFFFFF;"
+        *ngIf="this.URL_IFRAME" [src]="this.URL_IFRAME" [style.width]="width" [style.height]="100+'%'"
+        webkitallowfullscreen mozallowfullscreen allowfullscreen #iframe></iframe>
+    </div>
+  </div>
+</div>

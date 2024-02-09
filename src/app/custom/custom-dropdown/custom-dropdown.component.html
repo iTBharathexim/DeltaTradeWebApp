@@ -1,0 +1,31 @@
+<div class="custom-dropdown" (mouseenter)="state = 0" (mouseleave)="state = 1">
+  <p class="label-text" for="dropdown-btn" *ngIf="this.label">{{ this.label }}</p>
+  <div id="dropdown-btn" class="dropdownbtn" (click)="disabled==false ? showMenu = !showMenu : false; $event.stopPropagation();" [style.width]="width" [attr.disabled]="disabled">
+    <input [id]="id" class="form-control drop-down-input" #selected [value]="selectedItem || '' || setvalue"
+      [disabled]="disabled"
+      [placeholder]="inputplaceholder" [autocomplete]="this.INPUT_AUTOCOMPLETE"
+      (keyup)="filterInput('value',$event.target);changeKeyEvent(selected.value)"
+      (click)="disabled==false ? dropdown_controller('.dropappend',dropdown,$event,selected) :'';dropdown.style.display='block' "
+      [ngClass]="{'is-invalid': this.customdrop.limitclass==true}">
+      <span class="error-limit" *ngIf="this.customdrop.limitclass==true">Your comments cannot exceed {{limit}} characters.</span>
+    <span *ngIf="showMenu" class="icon">
+      <i class="fa fa-caret-up"></i>
+    </span>
+    <span *ngIf="!showMenu" class="icon">
+      <i class="fa fa-caret-down"></i>
+    </span>
+  </div>
+  <div class="dropdown-content" id="dropdown" #dropdown>
+    <p class="text-append header-text-dropdown" *ngIf="HEADER_DROP_DOWN.length!=0">
+      <span class="left-text">{{this.HEADER_DROP_DOWN[0]}}</span>
+      <span class="right-text">{{this.HEADER_DROP_DOWN[1]}}</span>
+    </p>
+    <div class="dropappend" #dropappend>
+      <p class="text-append" *ngFor="let d of this.customdrop.FILTER_DATA_INUPUT let i=index"
+      #textappend (click)="valueChange(d);selected.value=d.value;selectedIndex=i;dropdown.style.display='none'"
+      [ngClass]="{'active-dropdown': selectedIndex === i}">
+        <span class="left-text">{{ d.value }}</span>
+      </p>
+    </div>
+  </div>
+</div>

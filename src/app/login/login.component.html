@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Role Sign In</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <h2>Role Sing In</h2>
+    <form [formGroup]="userForm">
+      <div class="input-box">
+        <input type="text" formControlName="emailId" placeholder="Enter your email" required>
+      </div>
+      <div class="input-box">
+        <input type="password" formControlName="password" placeholder="Enter your password" required>
+      </div>
+      <div class="input-box button">
+        <button type="Submit" class="btn btn-primary p-2 m-auto" (click)="onFormSubmit()">Log in</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+.YesNoDialogModel-group {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 0 2px 2px #afa5a5;
+  height: 220px;
+  width: 390px;
+  flex-direction: column;
+  border-radius: 10px;
+  margin: auto;
+  padding-top: 10px;
+  color: black;
+}
+
+.YesNoDialogModel {
+  background-color: #2828286e;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  align-items: center;
+  z-index: 9999999;
+}
+
+.Custom_Model {
+  background-color: #2828286e;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  align-items: center;
+  z-index: 9999999;
+}
+
+.YesNoDialogModel-btn {
+  margin: 0 15px auto auto;
+  opacity: .7;
+}
+
+.YesNoDialogModel-group .column {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px;
+  margin-top: 0;
+}
+.iframe-group{
+  overflow: auto;
+  width: 100%;
+  padding: 10px;
+}
+.DropDownInputConfirmDialog{
+  z-index: 99999999;
+}
+.modal-dialog{
+  max-width: 60vw !important;
+}
+
+.Notification_DialogModel{
+  position: absolute;
+    width: 100vw;
+    right: 0;
+    top: 0;
+    height: auto;
+    padding: 20px;
+    color: red;
+    z-index: 9999999999;
+    background: rgba(0,0,0,.1803921569);
+    align-items: center;
+    justify-content: center;
+}
+
+.Notification_DialogModel .modal-dialog{
+  max-width: 100% !important;
+}

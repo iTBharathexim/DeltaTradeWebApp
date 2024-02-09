@@ -1,0 +1,149 @@
+.dropdownbtn {
+  background-color: #fff;
+  color: #464a4c;
+  font-size: 13px;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.dropdown i.icon {
+  color: #464a4c;
+  float: right;
+  margin-right: 8px;
+  font-size: 1.5em;
+}
+
+.dropdownbtn:hover,
+.dropdownbtn:focus {
+  background-color: inherit;
+}
+
+.dropdownbtn #displayText {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown {
+  position: relative;
+  display: block;
+}
+
+.dropdown #dropdown-btn {
+  display: block;
+  width: 100% !important;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  margin-left: 8px;
+  max-height: 250px;
+  min-width: auto;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #ffffff;
+  align-items: center;
+  justify-content: left;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px 2px #9d9999;
+  color: white;
+  text-align: left;
+  gap: 10px;
+  animation: opacity-animation 0.2s ease-in-out;
+}
+
+.dropdown-content a {
+  z-index: 1000;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+  display: block;
+}
+.icon {
+  position: absolute;
+  right: 10px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text-append {
+  font-size: 12px;
+  border: 1px solid #076d93;
+  width: 95%;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  gap: 5px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.text-append .left-text {
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  color: black;
+}
+
+.text-append .right-text {
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  color: black;
+}
+.label-text {
+  font-size: 12px;
+  margin: auto;
+  font-weight: 500;
+}
+
+.header-text-dropdown{
+  background: #363434;
+  width: 100%;
+  margin: auto;
+  border-radius: 0;
+}
+.dropappend{
+  overflow: auto;
+  max-height: 250px;
+}
+
+.header-text-dropdown span{
+  color: white !important;
+  font-size: 15px;
+}
+.active-dropdown{
+  background-color: #076d93;
+}
+.active-dropdown span{
+  color: white !important;
+}
+.event-none{
+  pointer-events: none;
+}

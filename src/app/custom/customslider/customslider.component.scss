@@ -1,0 +1,61 @@
+:host {
+  .hidden {
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+.main-panel {
+  display: grid;
+  grid-template-columns: 100px auto 100px;
+  width: 100%;
+  height: 100%;
+}
+
+.left-btn {
+  margin: auto;
+  margin-left: 0;
+}
+
+.right-btn {
+  margin: auto;
+  margin-right: 0;
+}
+
+.dotted-panel {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dotted-panel .dotted {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: gainsboro;
+  cursor: pointer;
+}
+
+.dotted-panel .dotted.dotted-active {
+  background: red;
+}
+
+.right-btn button,
+.left-btn button {
+  background: transparent;
+  border: none;
+  box-shadow: 0 0 2px 2px #dfdfdf !important;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  color: #8b8989;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-panel {
+  height: 600px;
+}

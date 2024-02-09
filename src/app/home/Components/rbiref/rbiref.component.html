@@ -1,0 +1,56 @@
+<div class="controller-card-rbi-ref">
+    <div class="body-rbi-ref">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">As on Date</th>
+                    <th scope="col">USD</th>
+                    <th scope="col">GBP</th>
+                    <th scope="col">EUR</th>
+                    <th scope="col">JPY</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of this.FORM_CREATE;let i=index">
+                    <th scope="row"><input type="date" name="" [disabled]="item?.disabled" [(ngModel)]="item.asdate"
+                            id="" class="form-control"></th>
+                    <td><input type="text" name="" [disabled]="item?.disabled" [(ngModel)]="item.USD" id=""
+                            class="form-control"></td>
+                    <td><input type="text" name="" [disabled]="item?.disabled" [(ngModel)]="item.GBP" id=""
+                            class="form-control"></td>
+                    <td><input type="text" name="" [disabled]="item?.disabled" [(ngModel)]="item.EUR" id=""
+                            class="form-control"></td>
+                    <td>
+                    <td><input type="text" name="" [disabled]="item?.disabled" [(ngModel)]="item.JPY" id=""
+                            class="form-control"></td>
+                    <td>
+                        <select name="" [disabled]="item?.disabled" [(ngModel)]="item.Status" id=""
+                            class="form-control">
+                            <option value="Holiday">Holiday</option>
+                            <option value="NoHoliday">No-Holiday</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" *ngIf="item.disabled==true"
+                            (click)="item.disabled=false">Edit</button>
+                        <button class="btn btn-primary" *ngIf="item.disabled==false && item?._id==undefined"
+                            (click)="item.disabled=true;onSubmit(item,i)">Save</button>
+                        <button class="btn btn-primary" *ngIf="item.disabled==false && item?._id!=undefined"
+                            (click)="item.disabled=true;onSubmit(item,i)">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<custom-model name="Airway / BLCopy Documents Update || Airway / BLCopy Documents No." #AddNewRBIREF>
+    <!-- <div class="col-12 p-2">
+        <form-components Title="Reset MPIN" [KEY_ENTER_ENABLED]="true" style="width: 100%;" id="UserResetMPIN"
+            (SubmitEvent)="onSubmit(uploadcomponents?.getRawValue)" #uploadcomponents>
+        </form-components>
+    </div> -->
+</custom-model>

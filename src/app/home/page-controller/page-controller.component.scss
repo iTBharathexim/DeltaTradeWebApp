@@ -1,0 +1,65 @@
+tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    font-size: 12px;
+}
+
+.upload-form {
+    cursor: pointer;
+    width: 100%;
+    background-color: #fff;
+    border: 1px dashed #51AEE5;
+    display: flex;
+    background: #F2F9FD;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 40px 0;
+    margin-bottom: 30px;
+}
+
+#dropzone {
+    font-family: EuropaNuova-Regular, sans-serif !important;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.meter {
+    margin-left: 35px;
+    width: 80%;
+    height: 4px;
+    position: relative;
+    background: #d8d8d8;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
+    box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.meter>span {
+    display: block;
+    height: 100%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: #2992fc;
+    background-image: linear-gradient(center bottom, rgb(43, 194, 83) 37%, rgb(84, 240, 84) 69%);
+    box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3), inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.progressbar {
+    height: 53px;
+    margin-top: 60px;
+}
+
+.processheading {
+    padding-left: 30px;
+}

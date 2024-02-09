@@ -1,0 +1,15 @@
+<div class="slider-panel">
+  <div class="main-panel">
+    <div class="left-btn"><button class="btn btn-primary" (click)="backSlider()"
+        [disabled]="this.counter==0?true:false"><i class='fas fa-arrow-left'></i></button></div>
+    <div class="slider-bottom-panel">
+      <ng-content></ng-content>
+    </div>
+    <div class="right-btn"><button class="btn btn-primary" (click)="nextSlider()"
+        [disabled]="this.SLIDER_NOT_FOUND==true?true:false"><i class='fas fa-arrow-right'></i></button>
+    </div>
+  </div>
+  <div class="dotted-panel">
+    <span class="dotted" [id]="'dotted'+(i)" (click)="changeSlider(i)" *ngFor="let item of this.SlideObject;let i=index"></span>
+  </div>
+</div>

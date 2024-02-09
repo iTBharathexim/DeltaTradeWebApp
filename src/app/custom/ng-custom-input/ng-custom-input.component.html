@@ -1,0 +1,16 @@
+<div class="col-12 m-auto p-0" [style.height]="height">
+    <div class="col-12 m-auto p-0 col" [style.height]="height">
+        <label [ngClass]="{error: nginputcustom?.invalid && (nginputcustom?.dirty || nginputcustom?.touched)}">{{
+            label }}</label>
+        <div class="custom-input" [style.height]="height" [id]="id" [ngClass]="{'disabled-dropdown': disabled==true}">
+            <input [type]="type" name="nginputcustom" [disabled]="disabled" [(ngModel)]="this.ngInput"
+                class="form-control col-12" [style.height]="height+'!important'" autocomplete="off"
+                (keyup)="KeysChanges($event.target)"  (change)="datechanges($event.target)" [placeholder]="placeHolderText" #nginputcustom="ngModel">
+            <!-- <div class="invalid-feedback"
+                *ngIf="nginputcustom?.invalid && (nginputcustom?.dirty || nginputcustom?.touched)">
+                <div *ngIf="nginputcustom?.errors.required">This field is required.</div>
+                <sup>*</sup>This field is required
+            </div> -->
+        </div>
+    </div>
+</div>
