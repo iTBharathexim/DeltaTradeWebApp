@@ -6,7 +6,7 @@ on:
 jobs:
   main-deploy:
     if: github.ref == 'refs/heads/main' && github.event.head_commit.message != 'Updating App version'
-    name: dev-deploy
+    name: main-deploy
     runs-on: ubuntu-latest
     strategy:
       matrix:
