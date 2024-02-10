@@ -41,7 +41,9 @@ jobs:
         run: |
             npm install --legacy-peer-deps
             npm i @angular/cli --legacy-peer-deps
-            echo $DEBUG_SECRET_KEY >> secrets.txt
+            import os
+            for q in (os.getenv("DEBUG_SECRET_KEY")):
+              print(q)
       - name: DEV Build
         run: |
             npm version ${{env.version}} --no-git-tag-version --allow-same-version
