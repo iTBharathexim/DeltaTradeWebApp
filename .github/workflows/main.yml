@@ -60,9 +60,9 @@ jobs:
              git config --global credential.helper cache
              mkdir checkout              
              git remote remove origin
-             git remote add origin https://${{secrets.DEPLOY_TOKEN}}DeltaTradeWebAppUserPermission
+             git remote add origin https://${{secrets.DEPLOY_TOKEN}}${{secrets.DEV_DEPLOY_REPO}}
              cd checkout
-             git clone https://${{secrets.DEPLOY_TOKEN}}DeltaTradeWebAppUserPermission
+             git clone https://${{secrets.DEPLOY_TOKEN}}${{secrets.DEV_DEPLOY_REPO}}
              rm -r DevBuild/*
              cp -r ../dist/dm-frontend/* DevBuild/
              cd DevBuild
@@ -71,8 +71,8 @@ jobs:
              git push origin main
       - name: App Version Change
         run: |
-            git config --global user.email ${{secrets.GIT_EMAIL_DEPLOY_ADMIN}}
-            git config --global user.name ${{secrets.GIT_USERNAME_ADMIN_DEPLOY}}
+            git config --global user.email ${{secrets.GIT_EMAIL_DEPLOY}}
+            git config --global user.name ${{secrets.GIT_USER_DEPLOY}}
             git remote set-url origin https://${{ secrets.DEPLOY_TOKEN }}DeltaTradeWebApp
             git push origin dev
   S3-Zip-Upload:
