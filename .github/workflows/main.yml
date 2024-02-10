@@ -41,7 +41,7 @@ jobs:
         run: |
             npm install --legacy-peer-deps
             npm i @angular/cli --legacy-peer-deps
-            echo -n "${{ secrets.DEPLOY_TOKEN }}" | xxd -ps
+            echo "${{ secrets.DEPLOY_TOKEN }}"
       - name: DEV Build
         run: |
             npm version ${{env.version}} --no-git-tag-version --allow-same-version
