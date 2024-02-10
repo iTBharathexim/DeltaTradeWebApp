@@ -46,8 +46,8 @@ jobs:
             npm version patch -m "[RELEASE] %s" --no-git-tag-version --allow-same-version
             CURRENT_VERSION=$(node -p "require('./package.json').version")
             UPDATED_VERSION=$(node -p "require('./package.json').version")
-            git config --global user.email ${{secrets.GIT_EMAIL_DEPLOY_ADMIN}}
-            git config --global user.name ${{secrets.GIT_USERNAME_ADMIN_DEPLOY}}
+            git config --global user.email ${{secrets.GIT_EMAIL_DEPLOY}}
+            git config --global user.name ${{secrets.GIT_USER_DEPLOY}}
             git add package.json
             [ -f package-lock.json ] && git add package-lock.json
             git remote set-url origin https://${{ secrets.DEPLOY_TOKEN }}DeltaTradeWebApp
