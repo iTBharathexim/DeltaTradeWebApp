@@ -3,37 +3,42 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th scope="col">TBILL</th>
                     <th scope="col">As on Date</th>
-                    <th scope="col">USD</th>
-                    <th scope="col">GBP</th>
-                    <th scope="col">EUR</th>
-                    <th scope="col">JPY</th>
+                    <th scope="col">Rate</th>
+                    <th scope="col">1M</th>
+                    <th scope="col">3M</th>
+                    <th scope="col">6M</th>
+                    <th scope="col">12M</th>
                     <th scope="col">Status</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of this.FORM_CREATE;let i=index">
-                    <td>
+                <tr *ngFor="let item of this.FORM_CREATE">
+                   <td>{{item?.TBILL}}</td>
+                    <td scope="row">
                         <input type="date" name="" [disabled]="item?.disabled" [(ngModel)]="item.asdate" id=""
                             class="form-control">
                     </td>
                     <td>
-                        <input type="text" name="" [disabled]="item?.disabled" [(ngModel)]="item.USD" id=""
+                        <input type="text" name="" [disabled]="item?.disabled" [(ngModel)]="item.rate" id=""
                             class="form-control">
                     </td>
                     <td>
-                        <input type="text" name="" [disabled]="item?.disabled" [(ngModel)]="item.GBP" id=""
+                        <input type="text" name="" [disabled]="item?.disabled" [(ngModel)]="item['1M']" id=""
                             class="form-control">
                     </td>
                     <td>
-                        <input type="text" name="" [disabled]="item?.disabled" [(ngModel)]="item.EUR" id=""
+                        <input type="text" name="" [disabled]="item?.disabled" [(ngModel)]="item['3M']" id=""
                             class="form-control">
                     </td>
                     <td>
-                        <input type="text" name="" [disabled]="item?.disabled" [(ngModel)]="item.JPY" id=""
+                        <input type="text" name="" [disabled]="item?.disabled" [(ngModel)]="item['6M']" id=""
                             class="form-control">
                     </td>
+                    <td><input type="text" name="" [disabled]="item?.disabled" [(ngModel)]="item['12M']" id=""
+                            class="form-control"></td>
                     <td>
                         <select name="" [disabled]="item?.disabled" [(ngModel)]="item.Status" id=""
                             class="form-control">

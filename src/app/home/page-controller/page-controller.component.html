@@ -1,4 +1,4 @@
 <div class="row p-2 controller-panel box-shadow">
-   <rbiref>
-   </rbiref>
+   <rbiref *ngIf="this.ROUTER_URL=='RBI'"></rbiref>
+   <BenchMarks *ngIf="this.ROUTER_URL=='BenchMarks'"></BenchMarks>
 </div>

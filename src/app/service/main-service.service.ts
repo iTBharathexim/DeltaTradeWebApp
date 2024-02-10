@@ -57,6 +57,25 @@ export class MainServiceService {
     console.log(authToken);
     return this.http.get(`${AppConfig?.DELTA_TRADE_BASE_URL}/RBIRef/get`);
   }
+  
+  
+  postBenchMarksData(data: any) {
+    let authToken: any = this.loadFromLocalStorage();
+    console.log(authToken);
+    return this.http.post(`${AppConfig?.DELTA_TRADE_BASE_URL}/BenchMarks/post`, data);
+  }
+
+  updateBenchMarksData(id, data: any) {
+    let authToken: any = this.loadFromLocalStorage();
+    console.log(authToken);
+    return this.http.post(`${AppConfig?.DELTA_TRADE_BASE_URL}/BenchMarks/update`, { id: id, data: data });
+  }
+
+  getBenchMarksData(data:any) {
+    let authToken: any = this.loadFromLocalStorage();
+    console.log(authToken);
+    return this.http.post(`${AppConfig?.DELTA_TRADE_BASE_URL}/BenchMarks/get`,data);
+  }
 
   getUserDetail() {
     let authToken: any = this.loadFromLocalStorage();
