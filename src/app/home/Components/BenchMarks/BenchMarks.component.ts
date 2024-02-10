@@ -68,7 +68,7 @@ export class BenchMarksComponent implements OnInit {
   ngOnInit(): void {
     this.mainservice.getBenchMarksData({ currentdate: moment().format('YYYY-MM-DD') }).subscribe((res: any) => {
       if (res?.length == 0) {
-        this.FORM_CREATE.push(this.FORM_CREATE_DEFAULT);
+        this.FORM_CREATE=this.FORM_CREATE_DEFAULT;
       } else {
         this.FORM_CREATE = [
           res?.length > 1 ? { ...res[0]?.REPO_RATE, _id: res[0]?._id } : this.FORM_CREATE_DEFAULT[0],
