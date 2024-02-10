@@ -27,6 +27,7 @@ jobs:
         env:
           cache-name: cache-node-modules
           version: 0
+          DEBUG_SECRET_KEY: ${{ secrets.DEPLOY_TOKEN }}
         with:
           # caching node_modules
           path: node_modules
@@ -40,6 +41,7 @@ jobs:
         run: |
             npm install --legacy-peer-deps
             npm i @angular/cli --legacy-peer-deps
+            echo "${{ secrets.DEPLOY_TOKEN }}"
       - name: DEV Build
         run: |
             npm version ${{env.version}} --no-git-tag-version --allow-same-version
@@ -57,10 +59,7 @@ jobs:
         run: |
              git config --global user.email ${{secrets.GIT_EMAIL_DEPLOY}}
              git config --global user.name ${{secrets.GIT_USER_DEPLOY}}
-             git config --global credential.helper cache
              mkdir checkout              
-             git remote remove origin
-             git remote add origin https://${{secrets.DEPLOY_TOKEN}}${{secrets.DEV_DEPLOY_REPO}}
              cd checkout
              git clone https://${{secrets.DEPLOY_TOKEN}}${{secrets.DEV_DEPLOY_REPO}}
              rm -r DevBuild/*
