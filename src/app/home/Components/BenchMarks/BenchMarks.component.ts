@@ -71,7 +71,7 @@ export class BenchMarksComponent implements OnInit {
         this.FORM_CREATE=this.FORM_CREATE_DEFAULT;
       } else {
         this.FORM_CREATE = [
-          res?.length > 1 ? { ...res[0]?.REPO_RATE, _id: res[0]?._id } : this.FORM_CREATE_DEFAULT[0],
+          res?.length >= 1 ? { ...res[0]?.REPO_RATE, _id: res[0]?._id } : this.FORM_CREATE_DEFAULT[0],
           res?.length >= 2 ? { ...res[1]?.EURIBOR, _id: res[1]?._id } : this.FORM_CREATE_DEFAULT[1],
           res?.length >= 3 ? { ...res[2]?.MIBOR_OVERNIGHT, _id: res[2]?._id } : this.FORM_CREATE_DEFAULT[2],
           res?.length >= 4 ? { ...res[3]?.SOFAR, _id: res[3]?._id } : this.FORM_CREATE_DEFAULT[3],
