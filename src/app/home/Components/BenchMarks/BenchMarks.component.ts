@@ -42,7 +42,7 @@ export class BenchMarksComponent implements OnInit {
       "12M": "",
       disabled: true
     }, {
-      TBILL: "SOFAR",
+      TBILL: "SOFR",
       asdate: moment().format('YYYY-MM-DD'),
       Status: "",
       "rate": "",
@@ -68,14 +68,20 @@ export class BenchMarksComponent implements OnInit {
   ngOnInit(): void {
     this.mainservice.getBenchMarksData({ currentdate: moment().format('YYYY-MM-DD') }).subscribe((res: any) => {
       if (res?.length == 0) {
-        this.FORM_CREATE=this.FORM_CREATE_DEFAULT;
+        this.FORM_CREATE = this.FORM_CREATE_DEFAULT;
       } else {
+        let REPO_RATE = res?.filter((item: any) => item?.REPO_RATE != undefined);
+        let EURIBOR = res?.filter((item: any) => item?.EURIBOR != undefined);
+        let MIBOR_OVERNIGHT = res?.filter((item: any) => item?.MIBOR_OVERNIGHT != undefined);
+        let SOFR = res?.filter((item: any) => item?.SOFR != undefined);
+        let SONIA = res?.filter((item: any) => item?.SONIA != undefined);
+
         this.FORM_CREATE = [
-          res?.length >= 1 ? { ...res[0]?.REPO_RATE, _id: res[0]?._id } : this.FORM_CREATE_DEFAULT[0],
-          res?.length >= 2 ? { ...res[1]?.EURIBOR, _id: res[1]?._id } : this.FORM_CREATE_DEFAULT[1],
-          res?.length >= 3 ? { ...res[2]?.MIBOR_OVERNIGHT, _id: res[2]?._id } : this.FORM_CREATE_DEFAULT[2],
-          res?.length >= 4 ? { ...res[3]?.SOFAR, _id: res[3]?._id } : this.FORM_CREATE_DEFAULT[3],
-          res?.length >= 5 ? { ...res[4]?.SONIA, _id: res[4]?._id } : this.FORM_CREATE_DEFAULT[4],
+          REPO_RATE?.length >= 1 ? { ...REPO_RATE[0]?.REPO_RATE, _id: REPO_RATE[0]?._id } : this.FORM_CREATE_DEFAULT[0],
+          EURIBOR?.length >= 1 ? { ...EURIBOR[0]?.EURIBOR, _id: EURIBOR[0]?._id } : this.FORM_CREATE_DEFAULT[1],
+          MIBOR_OVERNIGHT?.length >= 1 ? { ...MIBOR_OVERNIGHT[0]?.MIBOR_OVERNIGHT, _id: MIBOR_OVERNIGHT[0]?._id } : this.FORM_CREATE_DEFAULT[2],
+          SOFR?.length >= 1 ? { ...SOFR[0]?.SOFR, _id: SOFR[0]?._id } : this.FORM_CREATE_DEFAULT[3],
+          SONIA?.length >= 1 ? { ...SONIA[0]?.SONIA, _id: SONIA[0]?._id } : this.FORM_CREATE_DEFAULT[4],
         ]
         this.FORM_CREATE?.forEach(element => {
           element["disabled"] = true;
